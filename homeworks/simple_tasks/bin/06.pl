@@ -26,6 +26,9 @@ sub encode {
     # ...
     # Алгоритм шифрования
     # ...
+    foreach my $char (split //, $str) {
+        $encoded_str = $encoded_str.chr((ord($char)+$key)%128);
+    }
 
     print "$encoded_str\n";
 }
@@ -48,8 +51,10 @@ sub decode {
     # ...
     # Алгоритм дешифрования
     # ...
+    foreach my $char (split //, $encoded_str){
+        $str = $str.chr((ord($char)-$key)%128);
+    }
 
     print "$str\n";
 }
-
 1;

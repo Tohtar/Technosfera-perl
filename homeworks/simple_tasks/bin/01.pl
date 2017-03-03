@@ -34,9 +34,20 @@ sub run {
 
     #...
     #Вычисление корней
+    if ($a_value==0) {
+        print "No solution!\n";
+        return
+    }
+    my $disc_12 = $b_value*$b_value-4*$a_value*$c_value;
+    if ($disc_12<0) {
+        print "No solution!\n";
+    }
+    else {
+        $x1 = (-$b_value+sqrt($disc_12))/(2*$a_value);
+        $x2 = (-$b_value-sqrt($disc_12))/(2*$a_value);
     #...
-
     print "$x1, $x2\n";
+    
+    }
 }
-
 1;
